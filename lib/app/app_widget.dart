@@ -1,3 +1,4 @@
+import 'package:cuidapet_mobile/app/core/ui/ui_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:asuka/asuka.dart';
@@ -8,6 +9,7 @@ class AppWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Modular.setInitialRoute('/auth');
     Modular.setObservers([Asuka.asukaHeroController]);
 
     return ScreenUtilInit(
@@ -18,8 +20,8 @@ class AppWidget extends StatelessWidget {
           builder: (context, child) {
             return Asuka.builder(context, child);
           },
-          title: 'Cuidapet',
-          theme: ThemeData(primarySwatch: Colors.blue),
+          title: UiConfig.title,
+          theme: UiConfig.theme,
           routerConfig: Modular.routerConfig,
         );
       },
